@@ -1,5 +1,3 @@
-require 'minitest/autorun'
-require_relative '../../lib/rfc_facil'
 class TestHomoclaveCalculator < Minitest::Test
   def test_calculate_homoclave_for_simple_test_case
     assert_equal(homoclave('Juan', 'Perez', 'Garcia'), 'LN')

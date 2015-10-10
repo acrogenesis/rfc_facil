@@ -47,7 +47,6 @@ class HomoclaveCalculator
   def map_full_name_to_digits_code
     self.mapped_full_name = '0'
     full_name.each_char do |c|
-      # puts "#{c} => #{map_character_to_two_digit_code(c)}"
       self.mapped_full_name += map_character_to_two_digit_code(c)
     end
   end

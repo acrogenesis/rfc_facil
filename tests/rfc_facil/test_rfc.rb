@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require_relative '../../lib/rfc_facil'
-class RfcTest
+class TestRfc < Minitest::Test
   def should_build_rfc
     Rfc.new(name: 'Adrian Marcelo', first_last_name: 'Rangel',
             second_last_name: 'Araujo', day: 27, month: 11, year: 1992)

@@ -1,0 +1,79 @@
+class TestTenDigitsCodeCalculator < Minitest::Test
+  def test_calculate_ten_digits_code_for_simple_test_case
+    assert_equal(ten_digits_code('Juan', 'Barrios', 'Fernandez', 13, 12, 1970), 'BAFJ701213')
+  end
+
+  def test_calculate_ten_digits_code_for_date_after_year_2000
+    assert_equal(ten_digits_code('Juan', 'Barrios', 'Fernandez', 1, 12, 2001), 'BAFJ011201')
+  end
+
+  def test_exclude_special_particles_in_both_last_names
+    # DE, LA, LAS, MC, VON, DEL, LOS, Y, MAC, VAN, MI
+    assert_equal(ten_digits_code('Eric', 'Mc Gregor', 'Von Juarez', 13, 12, 1970), 'GEJE701213')
+  end
+
+  def test_exclude_special_particles_in_the_first_last_name
+    assert_equal(ten_digits_code('Josue', 'Zarzosa', 'de la Torre', 13, 12, 1970), 'ZATJ701213')
+  end
+
+  def test_exclude_special_particles_in_the_second_last_name
+    assert_equal(ten_digits_code('Josue', 'de la Torre', 'Zarzosa', 13, 12, 1970), 'TOZJ701213')
+  end
+
+  def test_use_first_word_of_compound_second_last_name
+    assert_equal(ten_digits_code('Antonio', 'Jiménez', 'Ponce de León', 13, 12, 1970), 'JIPA701213')
+  end
+
+  def test_use_first_word_of_compound_first_last_name
+    assert_equal(ten_digits_code('Antonio', 'Ponce de León', 'Juarez', 13, 12, 1970), 'POJA701213')
+  end
+
+  def test_use_use_first_two_letters_of_first_name_if_first_last_name_has_just_one_letter
+    assert_equal(ten_digits_code('Alvaro', 'de la O', 'Lozano', 13, 12, 1970), 'OLAL701213')
+  end
+
+  def test_use_use_first_two_letters_of_first_name_if_first_last_name_has_just_two_letters
+    assert_equal(ten_digits_code('Ernesto', 'Ek', 'Rivera', 13, 12, 1970), 'ERER701213')
+  end
+
+  def test_use_first_name_if_person_has_multiple_names
+    assert_equal(ten_digits_code('Luz María', 'Fernández', 'Juárez', 13, 12, 1970), 'FEJL701213')
+  end
+
+  def test_use_second_name_if_person_has_multiple_names_and_first_name_is_jose
+    assert_equal(ten_digits_code('José Antonio', 'Camargo', 'Hernández', 13, 12, 1970), 'CAHA701213')
+  end
+
+  def test_use_second_name_if_person_has_multiple_names_and_first_name_is_maria
+    assert_equal(ten_digits_code('María Luisa', 'Ramírez', 'Sánchez', 13, 12, 1970), 'RASL701213')
+  end
+
+  def test_use_first_two_letters_of_second_last_name_if_empty_first_last_name_is_provided
+    assert_equal(ten_digits_code('Juan', '', 'Martínez', 13, 12, 1970), 'MAJU701213')
+  end
+
+  def test_use_first_two_letters_of_second_last_name_if_nil_first_last_name_is_provided
+    assert_equal(ten_digits_code('Juan', nil, 'Martínez', 13, 12, 1970), 'MAJU701213')
+  end
+
+  def test_use_first_two_letters_of_first_last_name_if_empty_second_last_name_is_provided
+    assert_equal(ten_digits_code('Gerarda', 'Zafra', '', 13, 12, 1970), 'ZAGE701213')
+  end
+
+  def test_use_first_two_letters_of_first_last_name_if_nil_second_last_name_is_provided
+    assert_equal(ten_digits_code('Gerarda', 'Zafra', nil, 13, 12, 1970), 'ZAGE701213')
+  end
+
+  def test_replace_last_letter_with_x_if_code_makes_forbidden_word
+    # BUEI -> BUEX
+    assert_equal(ten_digits_code('Ingrid', 'Bueno', 'Ezquerra', 13, 12, 1970), 'BUEX701213')
+  end
+
+  private
+
+  def ten_digits_code(name, first_last_name, second_last_name, day, month, year)
+    TenDigitsCodeCalculator.new(
+      Person.new(name, first_last_name, second_last_name, day, month, year)
+    ).calculate
+  end
+end

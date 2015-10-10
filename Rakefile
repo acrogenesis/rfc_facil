@@ -3,7 +3,7 @@ require 'rake/testtask'
 
 Rake::TestTask.new do |t|
   t.libs << 'tests'
-  t.pattern = 'tests/rfc_facil/*.rb'
+  t.pattern = 'tests/*.rb'
 end
 
 desc 'Run tests'

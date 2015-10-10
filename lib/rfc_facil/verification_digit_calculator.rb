@@ -18,7 +18,6 @@ class VerificationDigitCalculator
     (0..11).each do |i|
       sum += map_digit(rfc12_digits[i]) * (13 - i)
     end
-    puts sum
     reminder = sum % 11
     if (reminder == 0)
       return '0'
