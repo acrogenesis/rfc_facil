@@ -99,7 +99,7 @@ class TenDigitsCodeCalculator
     if word.nil?
       return word
     else
-      normalized_word = I18n.transliterate(word).upcase
+      normalized_word = UnicodeUtils.upcase(I18n.transliterate(word))
       return remove_special_particles(normalized_word, SPECIAL_PARTICLES)
     end
   end
@@ -122,7 +122,7 @@ class TenDigitsCodeCalculator
     normalized_word = normalize(word)[1]
     m = VOWEL_PATTERN.match(normalized_word)
     if m.nil?
-      fail IllegalArgumentException("Word doesn't contain a vowel: " + normalized_word)
+      fail ArgumentError, "Word doesn't contain a vowel: #{normalized_word}"
     end
     normalized_word[m.to_s]
   end
