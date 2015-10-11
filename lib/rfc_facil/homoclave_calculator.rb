@@ -1,6 +1,5 @@
 class HomoclaveCalculator
   HOMOCLAVE_DIGITS = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ'
-
   FULL_NAME_MAPPING  = {
     ' ' => '00', '0' => '00', '1' => '01', '2' => '02', '3' => '03', '4' => '04',
     '5' => '05', '6' => '06', '7' => '07', '8' => '08', '9' => '09', '&' => '10',
@@ -13,7 +12,7 @@ class HomoclaveCalculator
   attr_accessor :person, :full_name, :mapped_full_name, :pairs_of_digits_sum, :homoclave
 
   def initialize(person)
-    self.person = person
+    @person = person
   end
 
   def calculate
@@ -22,58 +21,53 @@ class HomoclaveCalculator
     sum_pairs_of_digits
     build_homoclave
 
-    homoclave
+    @homoclave
   end
 
   private
 
   def build_homoclave
-    last_three_digits = (pairs_of_digits_sum % 1000).to_i
-    quo = (last_three_digits / 34).to_i
-    reminder = (last_three_digits % 34).to_i
-    self.homoclave = "#{HOMOCLAVE_DIGITS[quo]}#{HOMOCLAVE_DIGITS[reminder]}"
+    last_three_digits = (@pairs_of_digits_sum % 1000)
+    quo = (last_three_digits / 34)
+    reminder = (last_three_digits % 34)
+    @homoclave = "#{HOMOCLAVE_DIGITS[quo]}#{HOMOCLAVE_DIGITS[reminder]}"
   end
 
   def sum_pairs_of_digits
-    self.pairs_of_digits_sum = 0
-    (0..mapped_full_name.length - 2).each do |i|
-      num1 = mapped_full_name[i..i + 1].to_i
-      num2 = mapped_full_name[i + 1..i + 1].to_i
+    @pairs_of_digits_sum = 0
+    # @mapped_full_name[0..-2].each_char do |c, i|
+    (0..@mapped_full_name.length - 2).each do |i|
+      num1 = @mapped_full_name[i..i + 1].to_i
+      num2 = @mapped_full_name[i + 1..i + 1].to_i
 
-      self.pairs_of_digits_sum += num1 * num2
+      @pairs_of_digits_sum += num1 * num2
     end
   end
 
   def map_full_name_to_digits_code
-    self.mapped_full_name = '0'
-    full_name.each_char do |c|
-      self.mapped_full_name += map_character_to_two_digit_code(c)
+    @mapped_full_name = '0'
+    @full_name.each_char do |c|
+      @mapped_full_name << map_character_to_two_digit_code(c)
     end
   end
 
   def map_character_to_two_digit_code(c)
-    if FULL_NAME_MAPPING.key?(c)
-      return FULL_NAME_MAPPING[c]
-    else
-      fail ArgumentError, "No two-digit-code mapping for char: #{c}"
-    end
+    return FULL_NAME_MAPPING[c] if FULL_NAME_MAPPING.key?(c)
+    fail ArgumentError, "No two-digit-code mapping for char: #{c}"
   end
 
   def normalize_full_name
-    raw_full_name = UnicodeUtils.upcase("#{person}")
-    self.full_name = I18n.transliterate(raw_full_name)
-    self.full_name = full_name.gsub(/[-.']/, '') # remove .'-
-    self.full_name = add_missing_char_to_full_name(raw_full_name, 'Ñ')
+    raw_full_name = UnicodeUtils.upcase("#{@person}")
+    @full_name = I18n.transliterate(raw_full_name)
+    @full_name.gsub!(/[-.']/, '') # remove .'-
+    add_missing_char_to_full_name(raw_full_name, 'Ñ')
   end
 
   def add_missing_char_to_full_name(raw_full_name, missing_char)
     index = raw_full_name.index(missing_char)
-    return full_name if index.nil?
-    new_full_name = full_name
     until index.nil?
-      new_full_name[index] = missing_char
+      @full_name[index] = missing_char
       index = raw_full_name.index(missing_char, index + 1)
     end
-    new_full_name.to_s
   end
 end

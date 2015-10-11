@@ -10,29 +10,23 @@ class VerificationDigitCalculator
   }
 
   def initialize(rfc12_digits)
-    self.rfc12_digits = rfc12_digits
+    @rfc12_digits = rfc12_digits
   end
 
   def calculate
     sum = 0
     (0..11).each do |i|
-      sum += map_digit(rfc12_digits[i]) * (13 - i)
+      sum += map_digit(@rfc12_digits[i]) * (13 - i)
     end
     reminder = sum % 11
-    if (reminder == 0)
-      return '0'
-    elsif (reminder == 10)
-      return 'A'
-    else
-      return (11 - reminder).to_s
-    end
+
+    return '0' if (reminder == 0)
+    return 'A' if (reminder == 10)
+    (11 - reminder).to_s
   end
 
   def map_digit(c)
-    if MAPPING.key?(c)
-      return MAPPING[c]
-    else
-      return 0
-    end
+    return MAPPING[c] if MAPPING.key?(c)
+    0
   end
 end

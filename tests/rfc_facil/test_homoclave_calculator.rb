@@ -4,7 +4,8 @@ class TestHomoclaveCalculator < Minitest::Test
   end
 
   def test_calculate_same_homoclave_for_names_with_and_without_accents
-    assert_equal(homoclave('Juan', 'Perez', 'Garcia'), homoclave('Juan', 'Pérez', 'García'))
+    assert_equal(homoclave('Juan', 'Perez', 'Garcia'),
+                 homoclave('Juan', 'Pérez', 'García'))
   end
 
   def test_calculate_homoclave_for_person_with_more_than_one_name
@@ -20,7 +21,8 @@ class TestHomoclaveCalculator < Minitest::Test
   end
 
   def test_calculate_different_homoclave_for_name_with_n_with_tilde_and_without
-    refute_equal(homoclave('Juan', 'Muñoz', 'Ortega'), homoclave('Juan', 'Munoz', 'Ortega'))
+    refute_equal(homoclave('Juan', 'Muñoz', 'Ortega'),
+                 homoclave('Juan', 'Munoz', 'Ortega'))
   end
 
   def test_calculate_homoclave_for_name_with_u_with_umlaut
@@ -28,7 +30,8 @@ class TestHomoclaveCalculator < Minitest::Test
   end
 
   def test_calculate_same_homoclave_for_name_with_u_with_umlaut_and_without
-    assert_equal(homoclave('Jesus', 'Argüelles', 'Ortega'), homoclave('Jesus', 'Arguelles', 'Ortega'))
+    assert_equal(homoclave('Jesus', 'Argüelles', 'Ortega'),
+                 homoclave('Jesus', 'Arguelles', 'Ortega'))
   end
 
   def test_calculate_homoclave_for_name_with_ampersand
@@ -36,11 +39,13 @@ class TestHomoclaveCalculator < Minitest::Test
   end
 
   def test_calculate_same_homoclave_for_name_with_and_without_special_characters
-    assert_equal(homoclave('Juan', 'Mc.Gregor', "O'Connor-Juarez"), homoclave('Juan', 'McGregor', 'OConnorJuarez'))
+    assert_equal(homoclave('Juan', 'Mc.Gregor', "O'Connor-Juarez"),
+                 homoclave('Juan', 'McGregor', 'OConnorJuarez'))
   end
 
   def test_calculate_different_homoclave_for_names_with_and_without_ampersand
-    refute_equal(homoclave('Juan', 'Perez&Gomez', 'Garcia'), homoclave('Juan', 'PerezGomez', 'Garcia'))
+    refute_equal(homoclave('Juan', 'Perez&Gomez', 'Garcia'),
+                 homoclave('Juan', 'PerezGomez', 'Garcia'))
   end
 
   def test_calculate_same_homoclave_for_different_birthdays
