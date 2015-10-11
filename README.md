@@ -3,6 +3,8 @@
 
 Libreria para calcular el Registro Federal de Contribuyentes en México (RFC) en Ruby.
 
+[![Build Status](https://travis-ci.org/acrogenesis/rfc_facil.svg?branch=master)](https://travis-ci.org/acrogenesis/rfc_facil)
+
 ## Uso
 
 ```ruby
