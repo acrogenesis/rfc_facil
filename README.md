@@ -20,5 +20,5 @@ Esta librería se basa en documentación oficial obtenida por medio del IFAI (In
 ### Agradecimiento
 El código es una version en Ruby de [rfc-facil](https://github.com/josketres/rfc-facil) hecha en Java por [josketres](https://github.com/josketres)
 
-## Contributing
+## Colabora
 Errores y pull requests son bienvenidos en Github: https://github.com/acrogenesis/rfc_facil.
