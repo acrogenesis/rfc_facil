@@ -1,5 +1,5 @@
 # Rfc Fácil
-![](logo.png)
+![](https://github.com/acrogenesis/rfc_facil/raw/master/logo.png)
 
 Libreria para calcular el Registro Federal de Contribuyentes en México (RFC) en Ruby.
 
