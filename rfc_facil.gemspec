@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['adrian.rangel@gmail.com']
 
   spec.summary       = 'Libreria para calcular el Registro Federal de Contribuyentes en México (RFC).'
-  spec.homepage      = 'https://github.com/acrogenesis/rfc_facil'
+  spec.homepage      = 'https://acrogenesis.com/rfc_facil/'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'
