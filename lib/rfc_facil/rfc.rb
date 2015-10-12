@@ -13,7 +13,7 @@ class Rfc
     @person = Person.new(@name, @first_last_name, @second_last_name, @day, @month, @year)
     @ten_digits_code = TenDigitsCodeCalculator.new(@person).calculate
     @homoclave = HomoclaveCalculator.new(@person).calculate
-    @verification_digit = VerificationDigitCalculator.new(@ten_digits_code << @homoclave).calculate
+    @verification_digit = VerificationDigitCalculator.new("#{@ten_digits_code}#{@homoclave}").calculate
   end
 
   def to_s

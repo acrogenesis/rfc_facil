@@ -35,7 +35,6 @@ class HomoclaveCalculator
 
   def sum_pairs_of_digits
     @pairs_of_digits_sum = 0
-    # @mapped_full_name[0..-2].each_char do |c, i|
     (0..@mapped_full_name.length - 2).each do |i|
       num1 = @mapped_full_name[i..i + 1].to_i
       num2 = @mapped_full_name[i + 1..i + 1].to_i
