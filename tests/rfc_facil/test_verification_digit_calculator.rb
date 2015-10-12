@@ -1,6 +1,6 @@
 class VerificationDigitCalculatorTest < Minitest::Test
   def test_calculate_verification_digit
-    assert_equal(verification_digit('GODE561231GR'), '8')
+    assert_equal('8', verification_digit('GODE561231GR'))
   end
 
   def verification_digit(rfc12Digit)
