@@ -1,4 +1,7 @@
 # Rfc Fácil
+[![Code Climate](https://codeclimate.com/github/Munett/rfc_facil/badges/gpa.svg)](https://codeclimate.com/github/Munett/rfc_facil)
+[![Test Coverage](https://codeclimate.com/github/Munett/rfc_facil/badges/coverage.svg)](https://codeclimate.com/github/Munett/rfc_facil/coverage)
+
 ![](https://github.com/acrogenesis/rfc_facil/raw/master/logo.png)
 
 Libreria para calcular el Registro Federal de Contribuyentes en México (RFC) en Ruby.
