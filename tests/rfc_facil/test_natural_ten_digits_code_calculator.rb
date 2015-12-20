@@ -1,4 +1,4 @@
-class TestTenDigitsCodeCalculator < Minitest::Test
+class TestNaturalTenDigitsCodeCalculator < Minitest::Test
   def test_calculate_ten_digits_code_for_simple_test_case
     assert_equal('BAFJ701213', ten_digits_code('Juan', 'Barrios', 'Fernandez', 13, 12, 1970))
   end
@@ -72,8 +72,8 @@ class TestTenDigitsCodeCalculator < Minitest::Test
   private
 
   def ten_digits_code(name, first_last_name, second_last_name, day, month, year)
-    TenDigitsCodeCalculator.new(
-      Person.new(name, first_last_name, second_last_name, day, month, year)
+    NaturalTenDigitsCodeCalculator.new(
+      NaturalPerson.new(name, first_last_name, second_last_name, day, month, year)
     ).calculate
   end
 end

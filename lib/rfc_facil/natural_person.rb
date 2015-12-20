@@ -1,4 +1,4 @@
-class Person
+class NaturalPerson
   attr_accessor :name, :first_last_name, :second_last_name, :day, :month, :year
 
   def initialize(name, first_last_name, second_last_name, day, month, year)

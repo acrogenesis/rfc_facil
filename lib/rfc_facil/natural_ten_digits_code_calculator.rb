@@ -1,4 +1,4 @@
-class TenDigitsCodeCalculator
+class NaturalTenDigitsCodeCalculator
   VOWEL_PATTERN = /[AEIOU]+/
   attr_accessor :person
   SPECIAL_PARTICLES = %w(DE LA LAS MC VON DEL LOS Y MAC VAN MI)

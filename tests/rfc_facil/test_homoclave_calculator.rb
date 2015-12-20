@@ -50,12 +50,12 @@ class TestHomoclaveCalculator < Minitest::Test
 
   def test_calculate_same_homoclave_for_different_birthdays
     assert_equal(
-      HomoclaveCalculator.new(Person.new('Juan', 'Perez', 'Garcia', 5, 8, 1987)).calculate,
-      HomoclaveCalculator.new(Person.new('Juan', 'Perez', 'Garcia', 1, 1, 1901)).calculate
+      HomoclaveCalculator.new(NaturalPerson.new('Juan', 'Perez', 'Garcia', 5, 8, 1987)).calculate,
+      HomoclaveCalculator.new(NaturalPerson.new('Juan', 'Perez', 'Garcia', 1, 1, 1901)).calculate
     )
   end
 
   def homoclave(name, firstLastName, secondLastName)
-    HomoclaveCalculator.new(Person.new(name, firstLastName, secondLastName, 1, 1, 1901)).calculate
+    HomoclaveCalculator.new(NaturalPerson.new(name, firstLastName, secondLastName, 1, 1, 1901)).calculate
   end
 end
