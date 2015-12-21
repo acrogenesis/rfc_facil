@@ -2,11 +2,11 @@
 [![Code Climate](https://codeclimate.com/github/Munett/rfc_facil/badges/gpa.svg)](https://codeclimate.com/github/Munett/rfc_facil)
 [![Test Coverage](https://codeclimate.com/github/Munett/rfc_facil/badges/coverage.svg)](https://codeclimate.com/github/Munett/rfc_facil/coverage)
 
-![](https://github.com/acrogenesis/rfc_facil/raw/master/logo.png)
+![](https://github.com/Munett/rfc_facil/raw/master/logo.png)
 
 Libreria para calcular el Registro Federal de Contribuyentes en México (RFC) en Ruby.
 
-[![Build Status](https://travis-ci.org/acrogenesis/rfc_facil.svg?branch=master)](https://travis-ci.org/acrogenesis/rfc_facil)
+[![Build Status](https://travis-ci.org/Munett/rfc_facil.svg?branch=master)](https://travis-ci.org/Munett/rfc_facil)
 
 ## Uso
 
@@ -26,4 +26,4 @@ Esta librería se basa en documentación oficial obtenida por medio del IFAI (In
 El código es una version en Ruby de [rfc-facil](https://github.com/josketres/rfc-facil) hecha en Java por [josketres](https://github.com/josketres)
 
 ## Colabora
-Errores y pull requests son bienvenidos en Github: https://github.com/acrogenesis/rfc_facil.
+Errores y pull requests son bienvenidos en Github: https://github.com/Munett/rfc_facil.
