@@ -72,8 +72,8 @@ class TestNaturalTenDigitsCodeCalculator < Minitest::Test
   private
 
   def ten_digits_code(name, first_last_name, second_last_name, day, month, year)
-    NaturalTenDigitsCodeCalculator.new(
-      NaturalPerson.new(name, first_last_name, second_last_name, day, month, year)
+    RfcFacil::NaturalTenDigitsCodeCalculator.new(
+      RfcFacil::NaturalPerson.new(name, first_last_name, second_last_name, day, month, year)
     ).calculate
   end
 end

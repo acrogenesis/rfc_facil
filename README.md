@@ -15,7 +15,7 @@ gem 'rfc_facil'
 ```
 Calcular el rfc de una persona física es muy sencillo:
 ```ruby
-rfc = Rfc.new(name: 'Adrián Marcelo', first_last_name: 'Rangel', second_last_name: 'Araujo', day: 27, month: 11, year: 1992)
+rfc = RfcFacil::Rfc.new(name: 'Adrián Marcelo', first_last_name: 'Rangel', second_last_name: 'Araujo', day: 27, month: 11, year: 1992)
 rfc.to_s # => 'RAAA921127RI6'
 ```
 

@@ -1,6 +1,6 @@
 class TestRfc < Minitest::Test
   def test_rfc_for_a_natural_person
-    rfc = Rfc.new(name: 'Adrian Marcelo', first_last_name: 'Rangel',
+    rfc = RfcFacil::Rfc.new(name: 'Adrian Marcelo', first_last_name: 'Rangel',
                   second_last_name: 'Araujo', day: 27, month: 11, year: 1992)
 
     assert_equal('RAAA921127', rfc.ten_digits_code)
@@ -10,7 +10,7 @@ class TestRfc < Minitest::Test
   end
 
   def test_rfc_for_a_juristic_person
-    _rfc = Rfc.new(legal_name: 'Mu Networks S.A.P.I de C.V.', day: 10, month: 07, year: 2014)
+    _rfc = RfcFacil::Rfc.new(legal_name: 'Mu Networks S.A.P.I de C.V.', day: 10, month: 07, year: 2014)
 
     # assertThat(rfc.tenDigitsCode, equalTo("SIA-821129"));
     # assertThat(rfc.homoclave, equalTo("CK"));

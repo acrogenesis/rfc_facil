@@ -4,6 +4,6 @@ class VerificationDigitCalculatorTest < Minitest::Test
   end
 
   def verification_digit(rfc12Digit)
-    VerificationDigitCalculator.new(rfc12Digit).calculate
+    RfcFacil::VerificationDigitCalculator.new(rfc12Digit).calculate
   end
 end

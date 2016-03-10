@@ -10,8 +10,8 @@ class TestJurisitcTenDigitsCodeCalculator < Minitest::Test
   private
 
   def ten_digits_code(legal_name, day, month, year)
-    JuristicTenDigitsCodeCalculator.new(
-      JuristicPerson.new(legal_name, day, month, year)
+    RfcFacil::JuristicTenDigitsCodeCalculator.new(
+      RfcFacil::JuristicPerson.new(legal_name, day, month, year)
     ).calculate
   end
 end
