@@ -1,6 +1,6 @@
 module RfcFacil
   class HomoclaveCalculator
-    HOMOCLAVE_DIGITS = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ'
+    HOMOCLAVE_DIGITS = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ'.freeze
     FULL_NAME_MAPPING  = {
       ' ' => '00', '0' => '00', '1' => '01', '2' => '02', '3' => '03', '4' => '04',
       '5' => '05', '6' => '06', '7' => '07', '8' => '08', '9' => '09', '&' => '10',
@@ -9,7 +9,7 @@ module RfcFacil
       'M' => '24', 'N' => '25', 'O' => '26', 'P' => '27', 'Q' => '28', 'R' => '29',
       'S' => '32', 'T' => '33', 'U' => '34', 'V' => '35', 'W' => '36', 'X' => '37',
       'Y' => '38', 'Z' => '39', 'Ñ' => '40'
-    }
+    }.freeze
     attr_accessor :person, :full_name, :mapped_full_name, :pairs_of_digits_sum, :homoclave
 
     def initialize(person)
@@ -53,11 +53,11 @@ module RfcFacil
 
     def map_character_to_two_digit_code(c)
       return FULL_NAME_MAPPING[c] if FULL_NAME_MAPPING.key?(c)
-      fail ArgumentError, "No two-digit-code mapping for char: #{c}"
+      raise ArgumentError, "No two-digit-code mapping for char: #{c}"
     end
 
     def normalize_full_name
-      raw_full_name = UnicodeUtils.upcase("#{@person}")
+      raw_full_name = UnicodeUtils.upcase(@person.to_s)
       @full_name = I18n.transliterate(raw_full_name)
       @full_name.gsub!(/[-.']/, '') # remove .'-
       add_missing_char_to_full_name(raw_full_name, 'Ñ')

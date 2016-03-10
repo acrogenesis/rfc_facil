@@ -2,12 +2,12 @@ module RfcFacil
   class NaturalTenDigitsCodeCalculator
     VOWEL_PATTERN = /[AEIOU]+/
     attr_accessor :person
-    SPECIAL_PARTICLES = %w(DE LA LAS MC VON DEL LOS Y MAC VAN MI)
+    SPECIAL_PARTICLES = %w(DE LA LAS MC VON DEL LOS Y MAC VAN MI).freeze
     FORBIDDEN_WORDS = %w(
       BUEI BUEY CACA CACO CAGA KOGE KAKA MAME KOJO KULO
       CAGO COGE COJE COJO FETO JOTO KACO KAGO MAMO MEAR MEON
       MION MOCO MULA PEDA PEDO PENE PUTA PUTO QULO RATA RUIN
-    )
+    ).freeze
 
     def initialize(person)
       @person = person
@@ -77,7 +77,7 @@ module RfcFacil
 
     def filter_name(name)
       raw_name = normalize(name).strip
-      if raw_name.include?(' ') && (raw_name.start_with?('MARIA') || raw_name.start_with?('JOSE'))
+      if raw_name.include?(' ') && (raw_name.start_with?('MARIA', 'JOSE'))
         return raw_name.split(' ')[1]
       end
       name
@@ -117,7 +117,7 @@ module RfcFacil
     def first_vowel_excluding_first_character_of(word)
       normalized_word = normalize(word)[1..-1]
       m = VOWEL_PATTERN.match(normalized_word)
-      fail ArgumentError, "Word doesn't contain a vowel: #{normalized_word}" if m.nil?
+      raise ArgumentError, "Word doesn't contain a vowel: #{normalized_word}" if m.nil?
       normalized_word[m.to_s[0]]
     end
   end

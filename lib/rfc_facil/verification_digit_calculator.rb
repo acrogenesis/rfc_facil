@@ -8,7 +8,7 @@ module RfcFacil
       'L' => 21, 'M' => 22, 'N' => 23, '&' => 24, 'O' => 25, 'P' => 26, 'Q' => 27,
       'R' => 28, 'S' => 29, 'T' => 30, 'U' => 31, 'V' => 32, 'W' => 33, 'X' => 34,
       'Y' => 35, 'Z' => 36, ' ' => 37, 'Ñ' => 38
-    }
+    }.freeze
 
     def initialize(rfc12_digits)
       @rfc12_digits = rfc12_digits
@@ -21,8 +21,8 @@ module RfcFacil
       end
       reminder = sum % 11
 
-      return '0' if (reminder == 0)
-      return 'A' if (reminder == 10)
+      return '0' if reminder == 0
+      return 'A' if reminder == 10
       (11 - reminder).to_s
     end
 
