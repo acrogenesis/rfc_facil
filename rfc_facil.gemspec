@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = RfcFacil::VERSION
   spec.authors       = ['Adrian Rangel']
   spec.email         = ['adrian.rangel@gmail.com']
+  spec.licenses      = ['MIT']
 
   spec.summary       = 'Libreria para calcular el Registro Federal de Contribuyentes en México (RFC).'
   spec.homepage      = 'https://acrogenesis.com/rfc_facil/'
