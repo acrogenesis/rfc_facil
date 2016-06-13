@@ -22,6 +22,9 @@ rfc.to_s # => 'RAAA921127RI6'
 ## Fuente
 Esta librería se basa en documentación oficial obtenida por medio del IFAI (Instituto Federal de Acceso a la Información). El documento puede ser consultado en el sitio de [INFOMEX](https://www.infomex.org.mx/gobiernofederal/moduloPublico/moduloPublico.action) con el folio 0610100135506.
 
+## En otros lenguajes
+- .NET [migsalazar/RfcFacil](https://github.com/migsalazar/RfcFacil)
+
 ### Agradecimiento
 El código es una version en Ruby de [rfc-facil](https://github.com/josketres/rfc-facil) hecha en Java por [josketres](https://github.com/josketres)
 
