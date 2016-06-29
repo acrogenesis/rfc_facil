@@ -22,9 +22,7 @@ module RfcFacil
       reminder = sum % 11
 
       return '0' if reminder == 0
-      result = 11 - reminder
-      return 'A' if result == 10
-      result.to_s
+      (11 - reminder).to_s(16).upcase # from 1 to A (hex)
     end
 
     def map_digit(c)
