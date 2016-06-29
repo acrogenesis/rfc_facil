@@ -22,8 +22,9 @@ module RfcFacil
       reminder = sum % 11
 
       return '0' if reminder == 0
-      return 'A' if reminder == 10
-      (11 - reminder).to_s
+      result = 11 - reminder
+      return 'A' if result == 10
+      result.to_s
     end
 
     def map_digit(c)
