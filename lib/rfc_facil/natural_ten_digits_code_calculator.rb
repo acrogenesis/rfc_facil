@@ -77,7 +77,7 @@ module RfcFacil
 
     def filter_name(name)
       raw_name = normalize(name).strip
-      if raw_name.include?(' ') && (raw_name.start_with?('MA', 'MA.', 'MARIA', 'JOSE'))
+      if raw_name.include?(' ') && (raw_name.start_with?('MA.', 'MARIA', 'JOSE') || raw_name.split(' ')[0] == 'MA')
         return raw_name.split(' ')[1]
       end
       name
