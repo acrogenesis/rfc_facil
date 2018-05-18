@@ -23,6 +23,14 @@ class TestRfc < Minitest::Test
     assert_equal('JP', rfc.homoclave)
     assert_equal('A', rfc.verification_digit)
     assert_equal('AECS211112JPA', rfc.to_s)
+
+    rfc = RfcFacil::Rfc.new(name: 'MA GLORIA', first_last_name: 'NAVARRO',
+                  second_last_name: 'VILLASANA', day: 29, month: 3, year: 1956)
+
+    assert_equal('NAVG560329', rfc.ten_digits_code)
+    assert_equal('62', rfc.homoclave)
+    assert_equal('1', rfc.verification_digit)
+    assert_equal('NAVG560329621', rfc.to_s)
   end
 
   def test_rfc_for_a_juristic_person
