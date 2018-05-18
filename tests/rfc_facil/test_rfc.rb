@@ -24,6 +24,14 @@ class TestRfc < Minitest::Test
     assert_equal('A', rfc.verification_digit)
     assert_equal('AECS211112JPA', rfc.to_s)
 
+    rfc = RfcFacil::Rfc.new(name: 'MARCO ANTONIO', first_last_name: 'CANO',
+                  second_last_name: 'BARRAZA', day: 25, month: 1, year: 1982)
+
+    assert_equal('CABM820125', rfc.ten_digits_code)
+    assert_equal('48', rfc.homoclave)
+    assert_equal('1', rfc.verification_digit)
+    assert_equal('CABM820125481', rfc.to_s)
+
     rfc = RfcFacil::Rfc.new(name: 'MA GLORIA', first_last_name: 'NAVARRO',
                   second_last_name: 'VILLASANA', day: 29, month: 3, year: 1956)
 
