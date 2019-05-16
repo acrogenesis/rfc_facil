@@ -9,5 +9,5 @@ require 'rfc_facil/verification_digit_calculator'
 require 'i18n'
 require 'unicode_utils/upcase'
 module RfcFacil
-  I18n.available_locales = :en
+  I18n.available_locales ||= :en
 end
