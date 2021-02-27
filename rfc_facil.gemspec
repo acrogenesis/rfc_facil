@@ -1,5 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'rfc_facil/version'
 
@@ -21,8 +20,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'i18n'
   spec.add_dependency 'unicode_utils'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'minitest', '~> 5.8'
-  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
+  spec.add_development_dependency 'bundler', '~> 2.2'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
+  spec.add_development_dependency 'minitest', '~> 5.14'
+  spec.add_development_dependency 'rake', '~> 13.0'
 end
